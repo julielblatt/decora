@@ -39,6 +39,8 @@ class DecoraGameState extends State<DecoraGame> {
   bool canPressButton = false;
   bool gameOver = false;
   bool isGameStarted = false;
+  int roundCount = 0;
+  int maxRoundCount = 0; // Variável para armazenar o maior número de rodadas alcançadas
 
   @override
   void initState() {
@@ -49,6 +51,7 @@ class DecoraGameState extends State<DecoraGame> {
     gameOver = false;
     sequence.clear();
     currentIndex = 0;
+    roundCount = 0;
     generateNextSequence();
     playSequence();
   }
@@ -57,6 +60,12 @@ class DecoraGameState extends State<DecoraGame> {
     Random random = Random();
     int nextColorIndex = random.nextInt(4);
     sequence.add(nextColorIndex);
+    roundCount++;
+
+    // Atualiza o maior número de rodadas alcançadas
+    if (roundCount > maxRoundCount) {
+      maxRoundCount = roundCount;
+    }
   }
 
   void playSequence() {
@@ -174,7 +183,19 @@ class DecoraGameState extends State<DecoraGame> {
                 },
                 child: Text('Iniciar'),
               ),
-            if (isGameStarted) buildGameButtons(),
+            if (isGameStarted) ...[
+              Text(
+                'Rodada: $roundCount',
+                style: TextStyle(fontSize: 24, color: Colors.white),
+              ),
+              SizedBox(height: 16),
+              Text(
+                'Recorde: $maxRoundCount',
+                style: TextStyle(fontSize: 16, color: Colors.white),
+              ),
+              SizedBox(height: 16),
+              buildGameButtons(),
+            ],
           ],
         ),
       ),
@@ -205,4 +226,3 @@ class DecoraGameState extends State<DecoraGame> {
     );
   }
 }
-// fimm
