@@ -40,7 +40,8 @@ class DecoraGameState extends State<DecoraGame> {
   bool gameOver = false;
   bool isGameStarted = false;
   int roundCount = 0;
-  int maxRoundCount = 0; // Variável para armazenar o maior número de rodadas alcançadas
+  int maxRoundCount =
+      0; // Variável para armazenar o maior número de rodadas alcançadas
 
   @override
   void initState() {
@@ -165,6 +166,7 @@ class DecoraGameState extends State<DecoraGame> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red,
         title: Text('Decora'),
       ),
       body: Container(
@@ -182,6 +184,10 @@ class DecoraGameState extends State<DecoraGame> {
                   startGame();
                 },
                 child: Text('Iniciar'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors
+                      .red, // Define a cor de fundo do botão como vermelho
+                ),
               ),
             if (isGameStarted) ...[
               Text(
@@ -190,7 +196,7 @@ class DecoraGameState extends State<DecoraGame> {
               ),
               SizedBox(height: 16),
               Text(
-                'Recorde: $maxRoundCount',
+                'Maior Número de Rodadas: $maxRoundCount',
                 style: TextStyle(fontSize: 16, color: Colors.white),
               ),
               SizedBox(height: 16),
@@ -210,7 +216,7 @@ class DecoraGameState extends State<DecoraGame> {
             color: Colors.black,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: buttonColors[i],
+                backgroundColor: buttonColors[i],
                 minimumSize: Size(100, 100),
               ),
               onPressed: () {
