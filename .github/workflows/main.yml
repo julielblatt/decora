@@ -1,4 +1,4 @@
-name: Flymovies Actions
+name: Decoragame Actions
 run-name: ${{ github.actor }} building app decoragame
 on: 
   push:
