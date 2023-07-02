@@ -134,33 +134,35 @@ class DecoraGameState extends State<DecoraGame> {
     }
   }
 
-  void showGameOverDialog() {
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Game Over'),
-          content: Text('Você errou! Deseja jogar novamente?'),
-          actions: [
-            TextButton(
-              child: Text('Sim'),
-              onPressed: () {
-                Navigator.of(context).pop();
-                startGame();
-              },
-            ),
-            TextButton(
-              child: Text('Não'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
+ void showGameOverDialog() {
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text('Game Over'),
+        content: Text('Você errou! Deseja jogar novamente?'),
+        actions: [
+          TextButton(
+            child: Text('Sim'),
+            onPressed: () {
+              Navigator.of(context).pop();
+              startGame();
+            },
+          ),
+          TextButton(
+            child: Text('Não'),
+            onPressed: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).pop(); // Adicione esta linha
+            },
+          ),
+        ],
+      );
+    },
+  );
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -196,7 +198,7 @@ class DecoraGameState extends State<DecoraGame> {
               ),
               SizedBox(height: 16),
               Text(
-                'Maior Número de Rodadas: $maxRoundCount',
+                'Recorde: $maxRoundCount',
                 style: TextStyle(fontSize: 16, color: Colors.white),
               ),
               SizedBox(height: 16),
