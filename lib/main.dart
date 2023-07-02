@@ -18,10 +18,10 @@ class DecoraApp extends StatelessWidget {
 
 class DecoraGame extends StatefulWidget {
   @override
-  _DecoraGameState createState() => _DecoraGameState();
+  DecoraGameState createState() => DecoraGameState();
 }
 
-class _DecoraGameState extends State<DecoraGame> {
+class DecoraGameState extends State<DecoraGame> {
   List<Color> buttonColors = [
     Colors.red,
     Colors.blue,
