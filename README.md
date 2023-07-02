@@ -1,7 +1,7 @@
-# decora game
+# Decora game
 
-Um jogo para decorar cores
+Jogo para exercicio de memoria
 
-## ESPERA AI
+## Programação e Engenharia de Software
 
-Esta ficando pronto
+
